@@ -120,14 +120,11 @@ def subscribe_socket(ws):
     '''Fufill the websocket URL of /subscribe, every update notify the
        websocket and read updates from the websocket '''
     # XXX: TODO IMPLEMENT ME
-    print("ASD")
     client = Client()
     clients.append(client)
     g = gevent.spawn( read_ws, ws, client ) 
-    print("ADDSD")   
     try:
         while True:
-            print("QQASD")
             # block here
             msg = client.get()
             ws.send(msg)
